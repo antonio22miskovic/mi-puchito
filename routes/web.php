@@ -48,10 +48,10 @@ Route::middleware(['auth', 'optimizeImages'])->group(function(){
 	Route::get('/get_dolar', 'AdminController@get_dolar');
 	Route::post('/establecer_dolar', 'AdminController@establecer_dolar');
 
-	
+
 	Route::get('/ventas-al-mayor', 'CustomerController@al_mayor');
-	
-	
+
+
 	Route::resource('lista-de-deseos', 'WishlistController');
 
 	Route::get('/perfil', 'ProfileController@perfil')->name('perfil');
@@ -64,7 +64,7 @@ Route::middleware(['auth', 'optimizeImages'])->group(function(){
 	//SUMAR PRODUCTOS EN EL STOCK
 	Route::put('/sumar-inventory/{id}', 'InventoryController@sumar_producto');
 	Route::put('/restar-inventory/{id}', 'InventoryController@restar_producto');
-	
+
 	Route::post('/traer_empresa', 'AdminController@traer_empresa');
 	Route::post('/editar_empresa', 'AdminController@editar_empresa');
 	Route::post('/traer_categoria', 'AdminController@traer_categoria');
@@ -74,7 +74,7 @@ Route::middleware(['auth', 'optimizeImages'])->group(function(){
 	Route::post('/registrar_empresa', 'AdminController@registrar_empresa');
 	Route::post('/eliminar_empresa', 'AdminController@eliminar_empresa');
 	Route::post('/eliminar_categoria', 'AdminController@eliminar_categoria');
-	
+
 	Route::get('/traer_ciudad/{estado}', 'TravelRateController@traer_ciudad');
 	Route::get('/traer_sectores/{ciudad}', 'TravelRateController@traer_sectores');
 	Route::get('/get_wishlist', 'WishlistController@get_wishlist');
@@ -110,7 +110,7 @@ Route::get('/despachos-almacen', 'DespachosController@index_almacen')->name('des
 //RUTAS APIS
 Route::group(['prefix' => 'api'], function(){
 	//USUARIO
-	Route::get('/get-id', 'UsersController@get_id');	
+	Route::get('/get-id', 'UsersController@get_id');
 	//INVENTARIO
 	Route::get('/get-inventario', 'InventarioController@get_inventario');
 	Route::get('/ultimo-inventory', 'InventarioController@ultimo_inventory');
@@ -147,18 +147,18 @@ Route::group(['prefix' => 'api'], function(){
 	Route::post('/ventas', 'VentasController@store');
 	Route::post('/ventas-comprar', 'VentasController@store_compra');
 	//SINCRONIZACION
-	Route::get('/ultima-sincronizacion/{id}', 'SincronizacionController@ultimo');
+	Route::get('/ultima-sincronizacion/{id}','SincronizacionController@ultimo');
 	Route::post('/sincronizacion', 'SincronizacionController@store')->name('sincronizacion.store');
-	
+
 	//VENTA REFRESCAR
 	Route::get('/get-piso-venta-id', 'VentasController@get_piso_venta_id');
 	Route::get('/ultima-venta/{piso_venta}', 'VentasController@ultima_venta');//WEB
 	Route::get('/ventas-sin-registrar/{piso_venta}/{id}', 'VentasController@ventas_sin_registrar');
 	Route::post('/registrar-ventas', 'VentasController@registrar_ventas');//WEB
 
-	Route::get('/get-ventas-anuladas', 'VentasController@get_ventas_anuladas');
-	Route::post('/actualizar-anulados', 'VentasController@actualizar_anulados');//WEB
-	Route::post('/actualizar-anulados-local', 'VentasController@actualizar_anulados_local');
+	Route::get('/get-ventas-anuladas','VentasController@get_ventas_anuladas');
+	Route::post('/actualizar-anulados','VentasController@actualizar_anulados');//WEB
+	Route::post('/actualizar-anulados-local','VentasController@actualizar_anulados_local');
 
 	//RESUMEN
 	Route::get('/get-piso-ventas', 'PisoVentasController@get_piso_ventas');

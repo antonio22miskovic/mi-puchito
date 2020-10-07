@@ -35596,7 +35596,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 //require('./asset/scripts.js');
 //require('./asset/moment.min.js');
 //require('./asset/daterangepicker.min.js');
-//require('./asset/jquery.lazy.min.js');
+// require('./asset/jquery.lazy.min.js');
 
 /**
  * The following block of code may be used to automatically register your
