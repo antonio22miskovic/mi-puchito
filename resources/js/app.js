@@ -19,7 +19,7 @@ window.Vue = require('vue');
 //require('./asset/moment.min.js');
 //require('./asset/daterangepicker.min.js');
 
-// require('./asset/jquery.lazy.min.js');
+//require('./asset/jquery.lazy.min.js');
 
 /**
  * The following block of code may be used to automatically register your

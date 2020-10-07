@@ -135,9 +135,10 @@
 								}
 								@endphp
 
-									<div class="card border-info shadow text-center">
+									<div class="card border-info shadow">
 											{{-- OTRA VEZ LA IMAGEN DEL CARRUCEL --}}
-										<img style="height: 200px; object-fit: contain" src="{{ url('public/storage/'.$producto->product->image) }}"  class="card-img-top">
+										<img style="height: 200px; object-fit: contain" data-src="{{ url('
+										img/'.$producto->product->image) }}" class="card-img-top">
 										<div class="card-body body-producto" id="body-producto">
 											@if($producto->product->oferta == 1)
 											<span class="badge badge-danger mb-2" style="font-size: 1.5em;">Oferta</span>
@@ -148,15 +149,13 @@
 											<h6 class="font-weight-normal truncated-text text-center">Subtotal: <span class="">{{number_format($producto->product->retail_total_price - $producto->product->retail_iva_amount, 2, ',', '.') }}</span></h6>
 											{{-- <h6 class="font-weight-normal truncated-text text-center small">Iva: <span class="">{{ number_format($producto->product->retail_iva_amount, 2, ',', '.') }}</span></h6> --}}
 											@if(Request::get('buytype') == 'minor')
-
 												<p class="lead font-weight-light truncated-text text-center">{{ number_format($producto->product->retail_total_price, 2, ',', '.') }} Bs</p>
 											@elseif(Request::get('buytype') == 'major')
 												<p class="lead font-weight-light truncated-text text-center">{{ number_format($producto->product->wholesale_total_individual_price, 2, ',', '.') }} Bs</p>
 											@else
 												<p class="lead font-weight-light truncated-text text-center">{{ number_format($producto->product->retail_total_price, 2, ',', '.') }} Bs</p>
-
 											@endif
-											<p class="text-center text-success">Dolares:{{ number_format($producto->product->retail_total_price / $dolar->price, 2, ',', '.')}}$</p>
+											<p class="text-right text-success">Dolares:{{ number_format($producto->product->retail_total_price / $dolar->price, 2, ',', '.')}}$</p>
 
 												<div class="">
 {{--
@@ -178,7 +177,7 @@
 														<button
 															id="comprar-{{ $producto->id }}"
 															type="button"
-															class="btn  btn-warning addCartBtn"
+															class="btn btn-block btn-primary addCartBtn"
 															data-id="{{ $producto->id }}"
 															data-producto="{{ $producto->product_name }}"
 															data-precio="{{ $producto->product->retail_total_price }}"
@@ -196,7 +195,7 @@
 														<button
 														id="comprar-{{ $producto->id }}"
 															type="button"
-															class=" btn text-center btn-warning addCartBtn"
+															class="btn btn-block btn-primary addCartBtn"
 															data-id="{{ $producto->id }}"
 															data-producto="{{ $producto->product_name }}"
 															data-precio="{{ $producto->product->retail_total_price }}"
@@ -229,14 +228,14 @@
 									}
 								}
 								@endphp
-									<div class="card border-info  shadow-sm text-center">
+									<div class="card border-info  shadow-sm">
 
 
 
 										{{-- AQUI EL CARRUSEL DE IMAGENES  --}}
 
 
-										<img style="height:200px; object-fit:contain" src='public/storage/{{ $producto->product->image }}' class="card-img-top">
+										<img style="height: 200px; object-fit: contain" data-src="{{ url('img/'.$producto->product->image) }}"class="card-img-top">
 										<div class="card-body body-producto">
 											@if($producto->product->oferta == 1)
 											<span class="badge badge-danger mb-2" style="font-size: 1.5em;">Oferta</span>
@@ -247,7 +246,7 @@
 												<span class="font-weight-bold">Cantidad: </span>{{ $producto->qty_per_unit }} <br>
 												<span class="font-weight-bold">Precio por unidad: </span>{{ number_format($producto->product->wholesale_total_individual_price, 2, ',', '.') }} <br>
 												<span class="font-weight-bold">Subtotal: </span>{{ number_format(($producto->product->wholesale_packet_price), 2, ',', '.') }} <br>
-												{{-- <span class="font-weight-bold small">Iva: </span>{{number_format($producto->product->wholesale_iva_amount * $producto->qty_per_unit, 2, ',', '.')  }} <br> --}}
+												<span class="font-weight-bold small">Iva: </span>{{number_format($producto->product->wholesale_iva_amount * $producto->qty_per_unit, 2, ',', '.')  }} <br>
 											</p>
 
 											<p class="lead font-weight-normal text-center">{{ number_format($producto->product->wholesale_total_packet_price + ($producto->product->wholesale_iva_amount * $producto->qty_per_unit), 2, ',', '.') }} Bs</p>
@@ -268,7 +267,7 @@
 														<button
 														id="comprar-{{ $producto->id }}"
 															type="button"
-														class="btn  btn-warning addCartBtn"
+														class="btn btn-block btn-primary addCartBtn"
 														data-id="{{ $producto->id }}"
 														data-producto="{{ $producto->product_name }}"
 														data-precio="{{ $producto->product->wholesale_total_packet_price }}"
@@ -286,7 +285,7 @@
 													<button
 														id="comprar-{{ $producto->id }}"
 														type="button"
-														class="btn  btn-warning addCartBtn"
+														class="btn btn-block btn-primary addCartBtn"
 														data-id="{{ $producto->id }}"
 														data-producto="{{ $producto->product_name }}"
 														data-precio="{{ $producto->product->wholesale_total_packet_price }}"

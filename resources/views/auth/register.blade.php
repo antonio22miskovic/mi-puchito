@@ -130,7 +130,7 @@
 						¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a>
 					</div>
 					<div  class="mb-3 text-center">
-						 <a href="/"> Ir al inicio </a>
+						 <a href="/">Inicio</a>
 					</div>
 				</form>
 			</div>
